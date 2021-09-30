@@ -156,7 +156,7 @@ CREATE TABLE [dbo].[Compra](
 	[idUsuario] [int] NOT NULL,
 	[idProducto] [int] NOT NULL,
 	[Cantidad] [int] NOT NULL,
-	[FechaCom] [date] NULL,
+	[FechaCom] [datetime] NULL,
 	[Estado] [varchar](50) NULL,
 	[Total] [int] NULL,
 CONSTRAINT [PK_Compra] PRIMARY KEY CLUSTERED
