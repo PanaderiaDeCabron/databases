@@ -1,4 +1,4 @@
-/*  Creacion de la Segunda Base de datos PanDeCabron     */
+/*  Creacion de la Primera Base de datos PanDeCabron     */
 USE [master]
 GO
 CREATE DATABASE [PanDeCabron]
