@@ -88,7 +88,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Categorias](
-	[Id_Categoria] [int] NOT NULL,
+	[Id_Categoria] [int] IDENTITY(1,1) NOT NULL,
 	[NombreCat] [varchar](50) NULL,
 	[DescripcionCat] [varchar](50) NULL,
  CONSTRAINT [PK_Categorias] PRIMARY KEY CLUSTERED 
@@ -138,7 +138,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[TipoUsuario](
-	[ID_Tipo] [int] NOT NULL,
+	[ID_Tipo] [int] IDENTITY(1,1) NOT NULL,
 	[Tipo] [varchar](50) NULL,
  CONSTRAINT [PK_TipoUsuario] PRIMARY KEY CLUSTERED 
 (
@@ -152,9 +152,9 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Compra](
-	[ID_Compra] [int] NOT NULL,
-	[idUsuario] [int] IDENTITY(1,1) NOT NULL,
-	[idProducto] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Compra] [int] IDENTITY(1,1) NOT NULL,
+	[idUsuario] [int] NOT NULL,
+	[idProducto] [int] NOT NULL,
 	[Cantidad] [int] NOT NULL,
 	[FechaCom] [date] NULL,
 	[Estado] [varchar](50) NULL,
