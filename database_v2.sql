@@ -1,4 +1,4 @@
-﻿USE [master]
+USE [master]
 GO
 /****** Object:  Database [PanDeCabron]    Script Date: 29/04/2021 10:58:40 p. m. ******/
 CREATE DATABASE [PanDeCabron]
@@ -144,15 +144,16 @@ CREATE TABLE [dbo].[UserTypes](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-CCREATE TABLE [dbo].[Compra](
-	[ID_Compra] [int] IDENTITY(1,1) NOT NULL,
-	[idUsuario] [int] NOT NULL,
-	[idProducto] [int] NOT NULL,
-	[Cantidad] [int] NOT NULL,
-	[FechaCom] [datetime] NULL,
-	[Estado] [varchar](50) NULL,
-	[Total] [int] NULL,
-CONSTRAINT [PK_Compra] PRIMARY KEY CLUSTERED
+CREATE TABLE [dbo].[Sells](
+	[idSell] [int] IDENTITY(1,1) NOT NULL,
+	[sellDate] [datetime] NOT NULL,
+	[nameProduct] [varchar](50) NULL,
+	[idCategory] [int] NOT NULL,
+	[idUser] [int] IDENTITY(1,1) NOT NULL,
+	[nameUser] [varchar](50) NULL,
+	[stockProduct] [int] NULL,
+	[priceProduct] [int] NULL,
+ CONSTRAINT [PK_Products2] PRIMARY KEY CLUSTERED 
 (
 	[idSell] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
@@ -239,15 +240,15 @@ REFERENCES [dbo].[UserTypes] ([idUserType])
 GO
 ALTER TABLE [dbo].[Users] CHECK CONSTRAINT [FK_Users_UserTypes]
 GO
-ALTER TABLE [dbo].[Compra]  WITH CHECK ADD  CONSTRAINT [FK_Users_UserId] FOREIGN KEY([idUsuario])
+ALTER TABLE [dbo].[Sells]  WITH CHECK ADD  CONSTRAINT [FK_Users_UserId] FOREIGN KEY([idUser])
 REFERENCES [dbo].[Users] ([idUser])
 GO
-ALTER TABLE [dbo].[Compra] CHECK CONSTRAINT [FK_Users_UserId]
+ALTER TABLE [dbo].[Sells] CHECK CONSTRAINT [FK_Users_UserId]
 GO
-ALTER TABLE [dbo].[Compra]  WITH CHECK ADD  CONSTRAINT [FK_Product_ProductId] FOREIGN KEY([idProducto])
+ALTER TABLE [dbo].[Sells]  WITH CHECK ADD  CONSTRAINT [FK_Product_ProductId] FOREIGN KEY([idUser])
 REFERENCES [dbo].[Products] ([idProduct])
 GO
-ALTER TABLE [dbo].[Compra] CHECK CONSTRAINT [FK_Product_ProductId]
+ALTER TABLE [dbo].[Sells] CHECK CONSTRAINT [FK_Product_ProductId]
 GO
 
 USE [master]
