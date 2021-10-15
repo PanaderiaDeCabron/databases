@@ -147,6 +147,10 @@ CREATE TABLE [dbo].[TipoUsuario](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 CREATE TABLE [dbo].[Compra](
 	[ID_Compra] [int] IDENTITY(1,1) NOT NULL,
 	[ID_Usuario] [int] NOT NULL,
@@ -161,6 +165,7 @@ CREATE TABLE [dbo].[Compra](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] 
 GO
+
 INSERT [dbo].[Categorias] ([id_Categoria], [NombreCat]) VALUES (1, N'Consumibles')
 INSERT [dbo].[Categorias] ([id_Categoria], [NombreCat]) VALUES (2, N'Aparatos')
 INSERT [dbo].[Categorias] ([id_Categoria], [NombreCat]) VALUES (3, N'Decoración')
@@ -223,6 +228,7 @@ INSERT [dbo].[Usuario] ([ID_Usuario], [NombreUsr], [PassUsr], [IdTipo]) VALUES (
 INSERT [dbo].[Usuario] ([ID_Usuario], [NombreUsr], [PassUsr], [IdTipo]) VALUES (14, N'Leonardo', N'password123', 3)
 INSERT [dbo].[Usuario] ([ID_Usuario], [NombreUsr], [PassUsr], [IdTipo]) VALUES (15, N'Saul', N'password123', 3)
 INSERT [dbo].[Usuario] ([ID_Usuario], [NombreUsr], [PassUsr], [IdTipo]) VALUES (16, N'Luna', N'password123', 3)
+SET IDENTITY_INSERT [dbo].[Usuario] OFF
 GO
 INSERT [dbo].[TipoUsuario] ([IdTipo], [Tipo]) VALUES (1, N'Admin')
 INSERT [dbo].[TipoUsuario] ([IdTipo], [Tipo]) VALUES (2, N'Storer')
