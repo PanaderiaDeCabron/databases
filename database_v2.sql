@@ -250,7 +250,7 @@ REFERENCES [dbo].[Usuario] ([ID_Usuario])
 GO
 ALTER TABLE [dbo].[Compra] CHECK CONSTRAINT [FK_Usuario_UserId]
 GO
-ALTER TABLE [dbo].[Compra]  WITH CHECK ADD  CONSTRAINT [FK_Product_ProductId] FOREIGN KEY([ID_Usuario])
+ALTER TABLE [dbo].[Compra]  WITH CHECK ADD  CONSTRAINT [FK_Product_ProductId] FOREIGN KEY([ID_Producto])
 REFERENCES [dbo].[Productos] ([ID_Producto])
 GO
 ALTER TABLE [dbo].[Compra] CHECK CONSTRAINT [FK_Product_ProductId]
